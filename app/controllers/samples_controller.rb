@@ -1,10 +1,14 @@
 class SamplesController < ApplicationController
   def index
-    @entry = JSON.parse(sample_response)
+    @entries = Entry.all.order("created_at desc").as_json
   end
 
-  def sample_response
-    entry = Entry.includes([:authors, :links, :category]).first
+  def show
+    @entry = JSON.parse(sample_response(params[:id]))
+  end
+
+  def sample_response(id)
+    entry = Entry.includes([:authors, :links, :category]).find(id)
     res = entry.attributes.compact
     res[:authors] = entry.authors
     res[:links] = entry.links

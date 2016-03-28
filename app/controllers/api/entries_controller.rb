@@ -1,7 +1,7 @@
 module Api
   class EntriesController < ApplicationController
     def index
-      render json: Entry.all
+      render json: Entry.all.order("created_at desc")
     end
 
     def show

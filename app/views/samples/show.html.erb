@@ -1,0 +1,17 @@
+<h1><%= @entry["title"] %></h1>
+
+<h2><%= "#{Time.zone.parse(@entry['created_at']).strftime('%Y-%m-%d %H:%m')}  #{@entry['authors'][0]['name']}" %></h2>
+
+<img src="<%= @entry['enclosure_link']['href'] %>" alt="<%= @entry['enclosure_link']['title'] %>" />
+
+<p><%= @entry['enclosure_link']['title'] %></p>
+
+<%= raw(@entry['content']) %>
+
+<h1>関連記事</h1>
+
+<ul>
+  <% @entry['related_links'].each do |link| %>
+  <li><a href="<%= link['href'] %>"><%= link['title'] %></a></li>
+  <% end %>
+</ul>
