@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'samples/index'
+
   namespace :api, format: 'json' do
     get 'entries', to: 'entries#index', as: 'entries_index'
     get 'entries/:id', to: 'entries#show', as: 'entries_show'
