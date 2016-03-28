@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328072949) do
+ActiveRecord::Schema.define(version: 20160328074350) do
 
   create_table "entries", force: true do |t|
     t.string   "title"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20160328072949) do
   create_table "feeds", force: true do |t|
     t.string   "title"
     t.string   "guid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "links", force: true do |t|
+    t.string   "rel"
+    t.string   "type"
+    t.integer  "length"
+    t.string   "href"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
