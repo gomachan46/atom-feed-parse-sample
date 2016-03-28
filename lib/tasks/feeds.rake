@@ -32,9 +32,16 @@ namespace :feeds do
         title: atom.entries.first.links.first.title
     )
 
+    entry_author = EntryAuthor.new(entry: entry, author: author)
+    entry_category = EntryCategory.new(entry: entry, category: Category.find_by_term(atom.entries.first.category.term))
+    entry_link = EntryLink.new(entry: entry, link: link)
+
     feed.save!
     entry.save!
     author.save!
     link.save!
+    entry_author.save!
+    entry_category.save!
+    entry_link.save!
   end
 end
