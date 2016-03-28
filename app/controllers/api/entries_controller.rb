@@ -5,7 +5,12 @@ module Api
     end
 
     def show
-      render json: Entry.first
+      entry = Entry.includes([:authors, :links, :category]).first
+      res = entry.attributes.compact
+      res[:authors] = entry.authors
+      res[:links] = entry.links
+      res[:category] = entry.category
+      render json: res
     end
   end
 end
