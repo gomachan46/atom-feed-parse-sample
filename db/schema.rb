@@ -13,34 +13,34 @@
 
 ActiveRecord::Schema.define(version: 20160328084238) do
 
-  create_table "authors", force: true do |t|
-    t.string   "name"
+  create_table "authors", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "categories", force: true do |t|
-    t.string   "term"
-    t.string   "label"
+  create_table "categories", force: :cascade do |t|
+    t.string   "term",       limit: 255
+    t.string   "label",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "entries", force: true do |t|
-    t.string   "title"
-    t.string   "guid"
-    t.string   "summary"
-    t.text     "content"
-    t.integer  "feed_id"
+  create_table "entries", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.string   "guid",       limit: 255
+    t.string   "summary",    limit: 255
+    t.text     "content",    limit: 65535
+    t.integer  "feed_id",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "entries", ["feed_id"], name: "index_entries_on_feed_id", using: :btree
 
-  create_table "entry_authors", force: true do |t|
-    t.integer  "entry_id"
-    t.integer  "author_id"
+  create_table "entry_authors", force: :cascade do |t|
+    t.integer  "entry_id",   limit: 4
+    t.integer  "author_id",  limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -48,9 +48,9 @@ ActiveRecord::Schema.define(version: 20160328084238) do
   add_index "entry_authors", ["author_id"], name: "index_entry_authors_on_author_id", using: :btree
   add_index "entry_authors", ["entry_id"], name: "index_entry_authors_on_entry_id", using: :btree
 
-  create_table "entry_categories", force: true do |t|
-    t.integer  "entry_id"
-    t.integer  "category_id"
+  create_table "entry_categories", force: :cascade do |t|
+    t.integer  "entry_id",    limit: 4
+    t.integer  "category_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,9 +58,9 @@ ActiveRecord::Schema.define(version: 20160328084238) do
   add_index "entry_categories", ["category_id"], name: "index_entry_categories_on_category_id", using: :btree
   add_index "entry_categories", ["entry_id"], name: "index_entry_categories_on_entry_id", using: :btree
 
-  create_table "entry_links", force: true do |t|
-    t.integer  "entry_id"
-    t.integer  "link_id"
+  create_table "entry_links", force: :cascade do |t|
+    t.integer  "entry_id",   limit: 4
+    t.integer  "link_id",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,19 +68,19 @@ ActiveRecord::Schema.define(version: 20160328084238) do
   add_index "entry_links", ["entry_id"], name: "index_entry_links_on_entry_id", using: :btree
   add_index "entry_links", ["link_id"], name: "index_entry_links_on_link_id", using: :btree
 
-  create_table "feeds", force: true do |t|
-    t.string   "title"
-    t.string   "guid"
+  create_table "feeds", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.string   "guid",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "links", force: true do |t|
-    t.string   "rel"
-    t.string   "type"
-    t.integer  "length"
-    t.string   "href"
-    t.string   "title"
+  create_table "links", force: :cascade do |t|
+    t.string   "rel",        limit: 255
+    t.string   "type",       limit: 255
+    t.integer  "length",     limit: 4
+    t.string   "href",       limit: 255
+    t.string   "title",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end

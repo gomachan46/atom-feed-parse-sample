@@ -3,7 +3,9 @@ namespace :feeds do
 
   task :import => :environment do
     xml = File.open("./atom.xml").read
-    feed = RSS::Parser.parse xml
-    puts feed.entries.first.category.term
+    atom = RSS::Parser.parse xml
+
+    feed = Feed.new(title: atom.title.content, guid: atom.id.content, created_at: atom.updated.content, updated_at: atom.updated.content)
+    feed.save!
   end
 end
