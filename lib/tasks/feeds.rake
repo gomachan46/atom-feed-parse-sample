@@ -1,5 +1,3 @@
-require 'RSS'
-
 namespace :feeds do
   desc "feed import"
 
