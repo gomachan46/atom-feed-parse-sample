@@ -21,7 +21,11 @@ namespace :feeds do
         created_at: atom.entries.first.updated.content,
         updated_at: atom.entries.first.updated.content
     )
+
+    author = Author.new(name: atom.entries.first.authors.first.name.content)
+
     feed.save!
     entry.save!
+    author.save!
   end
 end
