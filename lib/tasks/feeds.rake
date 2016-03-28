@@ -24,8 +24,17 @@ namespace :feeds do
 
     author = Author.new(name: atom.entries.first.authors.first.name.content)
 
+    link = Link.new(
+        rel: atom.entries.first.links.first.rel,
+        type: atom.entries.first.links.first.type,
+        length: atom.entries.first.links.first.length,
+        href: atom.entries.first.links.first.href,
+        title: atom.entries.first.links.first.title
+    )
+
     feed.save!
     entry.save!
     author.save!
+    link.save!
   end
 end
