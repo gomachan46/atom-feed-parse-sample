@@ -3,7 +3,6 @@ Rails.application.routes.draw do
     get 'entries', to: 'entries#index', as: 'entries_index'
     get 'entries/:id', to: 'entries#show', as: 'entries_show'
   end
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
