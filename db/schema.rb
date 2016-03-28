@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328074931) do
+ActiveRecord::Schema.define(version: 20160328083617) do
 
   create_table "authors", force: true do |t|
     t.string   "name"
@@ -31,9 +31,12 @@ ActiveRecord::Schema.define(version: 20160328074931) do
     t.string   "guid"
     t.string   "summary"
     t.text     "content"
+    t.integer  "feed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "entries", ["feed_id"], name: "index_entries_on_feed_id", using: :btree
 
   create_table "feeds", force: true do |t|
     t.string   "title"

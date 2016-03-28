@@ -5,6 +5,7 @@ class CreateEntries < ActiveRecord::Migration
       t.string :guid
       t.string :summary
       t.text :content
+      t.references :feed, index: true
 
       t.timestamps
     end
