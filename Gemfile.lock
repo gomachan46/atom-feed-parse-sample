@@ -37,6 +37,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+    awesome_print (1.6.1)
     builder (3.2.2)
     coderay (1.1.1)
     concurrent-ruby (1.0.1)
@@ -107,6 +108,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   mysql2
   pry
   rails (= 4.2.6)
