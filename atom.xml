@@ -8,7 +8,7 @@
     <category term="entertainment" />
     <link rel="related" type="text/html" href="http://sample.voyagegroup.com/sample01.html" title="関連リンク01"/>
     <link rel="related" type="text/html" href="http://sample.voyagegroup.com/sample02.html" title="関連リンク02"/>
-    <link rel="enclosure" type="image/jpeg" href="http://sample.voyagegroup.com/images/sample03.jpeg" length="10000" title="代表画像"/>
+    <link rel="enclosure" type="image/jpg" href="http://voyagegroup.com/images/banner/img/hatarakigai_no1_l.jpg" length="225000" title="代表画像"/>
     <updated>2016-03-01T12:30:00+09:00</updated>
     <author>
       <name>エントリーの配信元名称</name>
