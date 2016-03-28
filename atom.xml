@@ -1,0 +1,25 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Atomフィードサンプル</title>
+  <id>ユニークとなるフィードID</id>
+  <updated>2016-03-01T00:00:00+09:00</updated>
+  <entry>
+    <title>エントリーのタイトル</title>
+    <id>ユニークとなるエントリーID</id>
+    <category term="entertainment" />
+    <link rel="related" type="text/html" href="http://sample.voyagegroup.com/sample01.html" title="関連リンク01"/>
+    <link rel="related" type="text/html" href="http://sample.voyagegroup.com/sample02.html" title="関連リンク02"/>
+    <link rel="enclosure" type="image/jpeg" href="http://sample.voyagegroup.com/images/sample03.jpeg" length="10000" title="代表画像"/>
+    <updated>2016-03-01T12:30:00+09:00</updated>
+    <author>
+      <name>エントリーの配信元名称</name>
+    </author>
+    <summary>エントリーの要約</summary>
+    <content type="html"><![CDATA[
+    <p>エントリーの本文</p>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/6FHmQ6CEIuY" frameborder="0" allowfullscreen></iframe>
+
+    <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">VOYAGE GROUPが、アジア9カ国合計940社以上が参加した中から「アジア地域における働きがいのある会社」のベストカンパニーに選ばれました！<br> <a href="https://t.co/YfGbIaE0eC">https://t.co/YfGbIaE0eC</a></p>&mdash; VOYAGE GROUP広報 (@VOYAGE_GROUP_PR) <a href="https://twitter.com/VOYAGE_GROUP_PR/status/710310482414972928">2016年3月17日</a></blockquote>
+    ]]></content>
+  </entry>
+</feed>
