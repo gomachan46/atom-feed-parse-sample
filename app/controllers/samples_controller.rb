@@ -8,11 +8,11 @@ class SamplesController < ApplicationController
   end
 
   def sample_response(id)
-    entry = Entry.includes([:authors, :links, :category]).find(id)
+    entry = Entry.includes([:authors, :links, :categories]).find(id)
     res = entry.attributes.compact
     res[:authors] = entry.authors
     res[:links] = entry.links
-    res[:category] = entry.category
+    res[:categories] = entry.categories
     res[:enclosure_link] = entry.enclosure_link
     res[:related_links] = entry.related_links
 

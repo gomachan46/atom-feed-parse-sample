@@ -23,8 +23,9 @@ namespace :feeds do
           updated_at: e.updated.content
       )
 
-      author = Author.new(name: e.authors.first.name.content)
-
+      authors = e.authors.map do |author|
+        Author.new(name: author.name.content)
+      end
       links = e.links.map do |link|
         Link.new(
           rel: link.rel,
@@ -35,19 +36,25 @@ namespace :feeds do
         )
       end
 
-      entry_author = EntryAuthor.new(entry: entry, author: author)
-      entry_category = EntryCategory.new(entry: entry, category: Category.find_by_term(e.category.term))
+      entry_authors = authors.map do |author|
+        EntryAuthor.new(entry: entry, author: author)
+      end
       entry_links = links.map do |link|
         EntryLink.new(entry: entry, link: link)
+      end
+      entry_categories = e.categories.map do |category|
+        EntryCategory.new(entry: entry, category: Category.find_by_term(category.term))
       end
 
       feed.save!
       entry.save!
-      author.save!
+
+      authors.each { |author| author.save! }
       links.each { |link| link.save! }
+
+      entry_authors.each { |ea| ea.save! }
       entry_links.each { |el| el.save! }
-      entry_author.save!
-      entry_category.save!
+      entry_categories.each { |ec| ec.save! }
     end
   end
 end

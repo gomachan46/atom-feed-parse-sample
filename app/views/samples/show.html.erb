@@ -1,6 +1,6 @@
 <h1><%= @entry["title"] %></h1>
 
-<h2><%= "#{Time.zone.parse(@entry['created_at']).strftime('%Y-%m-%d %H:%m')}  #{@entry['authors'][0]['name']}" %></h2>
+<h2><%= "#{Time.zone.parse(@entry['created_at']).strftime('%Y-%m-%d %H:%M')}  #{@entry['authors'][0]['name']}" %></h2>
 
 <img src="<%= @entry['enclosure_link']['href'] %>" alt="<%= @entry['enclosure_link']['title'] %>" />
 
