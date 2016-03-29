@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328084238) do
+ActiveRecord::Schema.define(version: 20160329021517) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160328084238) do
     t.string   "title",      limit: 255
     t.string   "guid",       limit: 255
     t.string   "summary",    limit: 255
-    t.text     "content",    limit: 65535
+    t.text     "content",    limit: 16777215
     t.integer  "feed_id",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
