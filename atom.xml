@@ -1,4 +1,5 @@
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:vg="http://vg">
+  <vg:hoge fuga="fugafuga">piyopiyo</vg:hoge>
   <title>Atomフィードサンプル</title>
   <id>ユニークとなるフィードID</id>
   <updated>2016-03-01T00:00:00+09:00</updated>
