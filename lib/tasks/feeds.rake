@@ -4,10 +4,7 @@ namespace :feeds do
   task :import => :environment do
     xml = File.open("./atom.xml").read
 
-    binding.pry
-
     atom = RSS::Parser.parse xml, true, false, VG::RSS::Parser
-
 
     feed = Feed.new(
         title: atom.title.content,
