@@ -2,9 +2,12 @@
 
 <h2><%= "#{Time.zone.parse(@entry['created_at']).strftime('%Y-%m-%d %H:%M')}  #{@entry['authors'][0]['name']}" %></h2>
 
+<% if @entry['enclosure_link'] %>
 <img src="<%= @entry['enclosure_link']['href'] %>" alt="<%= @entry['enclosure_link']['title'] %>" />
 
 <p><%= @entry['enclosure_link']['title'] %></p>
+
+<% end %>
 
 <%= raw(@entry['content']) %>
 
